@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { styles } from './style';
+import MovieTile from '../../components/MovieTile';
+import catagories from '../../../data/categories'
+import MovieRow from '../../components/MovieRow';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <FlatList
+      data={catagories.items}
+      renderItem={(item)=>(MovieRow(item))}
+      />
     </View>
   );
 }
