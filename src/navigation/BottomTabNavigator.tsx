@@ -56,7 +56,7 @@ function TabOneNavigator() {
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="HomeScreen"
-        component={HomeScreen}
+        component={MovieDetail}
         options={{ headerShown: false }}
       />
       <HomeStack.Screen
