@@ -8,7 +8,14 @@ import PlayButton from "../../components/PlayButton";
 import CustomButton from "../../components/CustomButton";
 import VideoPlayer from "../../components/VideoPlayer";
 
-export default function MovieDetail() {
+interface MovieDetailProps{
+  id:string,
+  image:string
+}
+
+export default function MovieDetail(route:MovieDetailProps) {
+  console.log(route);
+  
   return (
     <SafeAreaView style={styles.container}>
       <VideoPlayer

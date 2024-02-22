@@ -1,46 +1,56 @@
-import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons'; 
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import { AntDesign, MaterialIcons, Ionicons } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
 
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from "../screens/HomeScreen";
 
-import { BottomTabParamList, HomeParamList, TabTwoParamList } from '../../types';
-import MovieDetail from '../screens/MovieDetail';
+import {
+  BottomTabParamList,
+  HomeParamList,
+  TabTwoParamList,
+} from "../../types";
+import MovieDetail from "../screens/MovieDetail";
 
 const BottomTab = createMaterialBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
-
   return (
-    <BottomTab.Navigator
-      initialRouteName="Home">
+    <BottomTab.Navigator initialRouteName="Home">
       <BottomTab.Screen
         name="Home"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="home" size={24} color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Coming_Soon"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="video-library" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="video-library" size={24} color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Search"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <Ionicons name="search" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="search" size={24} color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Downloads"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <AntDesign name="download" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="download" size={24} color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -56,15 +66,15 @@ function TabOneNavigator() {
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="HomeScreen"
-        component={MovieDetail}
+        component={HomeScreen}
         options={{ headerShown: false }}
       />
       <HomeStack.Screen
         name="MovieDetailsScreen"
         component={MovieDetail}
-        options={{ 
-          title: ''
-         }}
+        options={{
+          title: "",
+        }}
       />
     </HomeStack.Navigator>
   );
@@ -78,7 +88,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={MovieDetail}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ headerTitle: "Tab Two Title" }}
       />
     </TabTwoStack.Navigator>
   );
